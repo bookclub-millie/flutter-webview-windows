@@ -641,7 +641,7 @@ class _WebviewState extends State<Webview> {
                       }
                     },
                     onPointerPanZoomUpdate: (signal) {
-                      _setWebViewScroll(x: signal.position.dx, y: signal.position.dy, dx: 0, dy: -signal.panDelta.dy);
+                      _setWebViewScroll(x: signal.position.dx, y: signal.position.dy, dx: 0, dy: -signal.panDelta.dy*2);
                     },
                     onPointerSignal: (signal) {
                       if (signal is PointerScrollEvent) {
@@ -667,13 +667,26 @@ class _WebviewState extends State<Webview> {
   }
 
   _setWebViewScroll({required double dx, required double dy, required double x, required double y}) {
+    print('phil test');
     _controller.executeScript('''
     var el = document.elementFromPoint($x,$y);
     var el2 = eleCanScroll(el);
-    el2.scrollBy($dx,${dy}, {
-      behavior: "smooth",
-      duration: 10000,
-    });
+    if(el2){
+      el2.scrollBy($dx,$dy);
+      // el2.scrollBy({
+      //   top: $dy,
+      //   left: $dx,
+      //   behavior: "smooth",
+      // });
+    }else{
+      var h = document.querySelector("html");
+      h.scrollBy($dx,$dy);
+      // h.scrollBy({
+      //   top: $dy,
+      //   left: $dx,
+      //   behavior: "smooth",
+      // });
+    };
     ''');
   }
 
