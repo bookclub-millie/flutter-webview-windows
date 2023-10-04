@@ -641,14 +641,11 @@ class _WebviewState extends State<Webview> {
                       }
                     },
                     onPointerPanZoomUpdate: (signal) {
-                      _controller._setScrollDelta(0, signal.pan.dy / 2);
+                      _setWebViewScroll(x: signal.position.dx, y: signal.position.dy, dx: 0, dy: -signal.panDelta.dy);
                     },
                     onPointerSignal: (signal) {
                       if (signal is PointerScrollEvent) {
-                        // print("onPointerSignal : ${-signal.scrollDelta.dy}");
-                        // String mouse_event = postMouseEvent("scroll",{"scroll_delta_dx":-signal.scrollDelta.dx,"scroll_delta_dy":-signal.scrollDelta.dy});
-
-                        _controller._setScrollDelta(-signal.scrollDelta.dx / 2, -signal.scrollDelta.dy / 2);
+                        _setWebViewScroll(x: signal.position.dx, y: signal.position.dy, dx: 0, dy: signal.scrollDelta.dy);
                       }
                     },
                     child: MouseRegion(
@@ -669,13 +666,20 @@ class _WebviewState extends State<Webview> {
     }
   }
 
+  _setWebViewScroll({required double dx, required double dy, required double x, required double y}) {
+    _controller.executeScript('''
+    var el = document.elementFromPoint($x,$y);
+    var el2 = eleCanScroll(el);
+    el2.scrollBy($dx,${dy}, {
+      behavior: "smooth",
+      duration: 10000,
+    });
+    ''');
+  }
+
   @override
   void dispose() {
     super.dispose();
     _cursorSubscription?.cancel();
-  }
-
-  String postMouseEvent(String mouseEvent, dynamic data) {
-    return jsonEncode({"mouse_event": mouseEvent, "data": data});
   }
 }
