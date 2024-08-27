@@ -422,8 +422,10 @@ void WebviewBridge::HandleMethodCall(
       webview_->SetSurfaceSize(static_cast<size_t>(width),
                                static_cast<size_t>(height),
                                static_cast<float>(scale_factor));
+    if (height > 1.0 && width > 1.0) {
+        texture_bridge_->Start();
+      }
 
-      texture_bridge_->Start();
       return result->Success();
     }
     return result->Error(kErrorInvalidArgs);

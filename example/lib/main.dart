@@ -29,6 +29,7 @@ class ExampleBrowser extends StatefulWidget {
 
 class _ExampleBrowser extends State<ExampleBrowser> {
   final _controller = WebviewController();
+  final _secondController = WebviewController();
   final _textController = TextEditingController();
   final List<StreamSubscription> _subscriptions = [];
   bool _isWebviewSuspended = false;
@@ -52,6 +53,8 @@ class _ExampleBrowser extends State<ExampleBrowser> {
       _subscriptions.add(_controller.url.listen((url) {
         _textController.text = url;
       }));
+      await _secondController.initialize();
+     await _secondController.setSize(Size(0.0, 0.0), 1.0);
 
       _subscriptions
           .add(_controller.containsFullScreenElementChanged.listen((flag) {
