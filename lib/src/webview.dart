@@ -516,12 +516,12 @@ class WebviewController extends ValueNotifier<WebviewValue> {
   }
 
   /// Sets the surface size to the provided [size].
-  Future<void> _setSize(Size size, double scaleFactor) async {
+  Future<void> setSize(Size size, double scaleFactor) async {
     if (_isDisposed) {
       return;
     }
     assert(value.isInitialized);
-    return _methodChannel.invokeMethod('setSize', [size.width, size.height, scaleFactor]);
+    return _methodChannel.invokeMethod('setSize', [size.width > 1 ? size.width : 1.0, size.height > 1 ? size.height : 1.0, scaleFactor]);
   }
 }
 
@@ -641,7 +641,7 @@ class _WebviewState extends State<Webview> {
                       }
                     },
                     onPointerPanZoomUpdate: (signal) {
-                      _setWebViewScroll(x: signal.position.dx, y: signal.position.dy, dx: 0, dy: -signal.panDelta.dy*2);
+                      _setWebViewScroll(x: signal.position.dx, y: signal.position.dy, dx: 0, dy: -signal.panDelta.dy * 2);
                     },
                     onPointerSignal: (signal) {
                       if (signal is PointerScrollEvent) {
@@ -662,7 +662,7 @@ class _WebviewState extends State<Webview> {
     final box = _key.currentContext?.findRenderObject() as RenderBox?;
     if (box != null) {
       await _controller.ready;
-      unawaited(_controller._setSize(box.size, widget.scaleFactor ?? window.devicePixelRatio));
+      unawaited(_controller.setSize(box.size, widget.scaleFactor ?? window.devicePixelRatio));
     }
   }
 
