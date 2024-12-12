@@ -16,12 +16,6 @@ enum class WebviewPointerButton { None, Primary, Secondary, Tertiary };
 
 enum class WebviewPointerEventKind { Activate, Down, Enter, Leave, Up, Update };
 
-enum class WebviewDownloadEventKind {
-  DownloadStarted,
-  DownloadCompleted,
-  DownloadProgress
-};
-
 enum class WebviewPermissionKind {
   Unknown,
   Microphone,
@@ -41,14 +35,6 @@ enum class WebviewHostResourceAccessKind { Deny, Allow, DenyCors };
 struct WebviewHistoryChanged {
   BOOL can_go_back;
   BOOL can_go_forward;
-};
-
-struct WebviewDownloadEvent {
-  WebviewDownloadEventKind kind;
-  std::string url;
-  std::string resultFilePath;
-  INT64 bytesReceived;
-  INT64 totalBytesToReceive;
 };
 
 struct VirtualKeyState {
@@ -101,9 +87,6 @@ struct EventRegistrations {
   EventRegistrationToken devtools_protocol_event_token_{};
   EventRegistrationToken new_windows_requested_token_{};
   EventRegistrationToken contains_fullscreen_element_changed_token_{};
-  EventRegistrationToken download_starting_token_{};
-  EventRegistrationToken download_bytes_received_token_{};
-  EventRegistrationToken download_state_changed_token_{};
 };
 
 class Webview {
@@ -133,7 +116,6 @@ class Webview {
       PermissionRequestedCallback;
   typedef std::function<void(bool contains_fullscreen_element)>
       ContainsFullScreenElementChangedCallback;
-  typedef std::function<void(WebviewDownloadEvent)> DownloadEventCallback;
 
   ~Webview();
 
@@ -178,8 +160,6 @@ class Webview {
                                  WebviewHostResourceAccessKind accessKind);
   bool ClearVirtualHostNameMapping(const std::string& hostName);
 
-  void UpdateDownloadProgress(ICoreWebView2DownloadOperation* download);
-
   void OnUrlChanged(UrlChangedCallback callback) {
     url_changed_callback_ = std::move(callback);
   }
@@ -190,10 +170,6 @@ class Webview {
 
   void OnLoadingStateChanged(LoadingStateChangedCallback callback) {
     loading_state_changed_callback_ = std::move(callback);
-  }
-
-  void OnDownloadEvent(DownloadEventCallback callback) {
-    download_event_callback_ = std::move(callback);
   }
 
   void OnHistoryChanged(HistoryChangedCallback callback) {
@@ -258,7 +234,6 @@ class Webview {
 
   UrlChangedCallback url_changed_callback_;
   LoadingStateChangedCallback loading_state_changed_callback_;
-  DownloadEventCallback download_event_callback_;
   OnLoadErrorCallback on_load_error_callback_;
   HistoryChangedCallback history_changed_callback_;
   DocumentTitleChangedCallback document_title_changed_callback_;
