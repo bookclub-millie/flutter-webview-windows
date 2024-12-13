@@ -550,7 +550,7 @@ class WebviewController extends ValueNotifier<WebviewValue> {
       return;
     }
     assert(value.isInitialized);
-    return _methodChannel.invokeMethod('setSize', [1.0, 1.0, scaleFactor]);
+    return _methodChannel.invokeMethod('setSize', [size.width > 1 ? size.width : 1.0, size.height > 1 ? size.height : 1.0, scaleFactor]);
   }
 }
 
