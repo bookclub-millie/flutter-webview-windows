@@ -179,6 +179,13 @@ void WebviewWindowsPlugin::HandleMethodCall(
   }
 }
 
+
+void GetScreenDimensions(int& width, int& height) {
+  width = GetSystemMetrics(SM_CXSCREEN);
+  height = GetSystemMetrics(SM_CYSCREEN);
+}
+
+
 void WebviewWindowsPlugin::CreateWebviewInstance(
     std::unique_ptr<flutter::MethodResult<flutter::EncodableValue>> result) {
   if (!InitPlatform()) {
@@ -193,10 +200,16 @@ void WebviewWindowsPlugin::CreateWebviewInstance(
       return result->Error(kErrorCodeEnvironmentCreationFailed);
     }
   }
+  
+  int screenWidth, screenHeight;
+  GetScreenDimensions(screenWidth, screenHeight);
 
-  auto hwnd =
-      CreateWindowEx(0, window_class_.lpszClassName, L"", 0, 0, 0, 0, 0,
-                     HWND_MESSAGE, nullptr, window_class_.hInstance, nullptr);
+  int offScreenX = screenWidth + 100;
+  int offScreenY = screenHeight + 100;
+
+  auto hwnd = CreateWindowEx(0, window_class_.lpszClassName, L"", 0, offScreenX,
+                             offScreenY, 0, 0, HWND_MESSAGE, nullptr,
+                             window_class_.hInstance, nullptr);
 
   std::shared_ptr<flutter::MethodResult<flutter::EncodableValue>>
       shared_result = std::move(result);
