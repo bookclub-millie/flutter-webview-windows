@@ -194,9 +194,9 @@ void WebviewWindowsPlugin::CreateWebviewInstance(
     }
   }
 
-  auto hwnd =
-      CreateWindowEx(0, window_class_.lpszClassName, L"", 0, 0, 0, 0, 0,
-                     HWND_MESSAGE, nullptr, window_class_.hInstance, nullptr);
+  auto hwnd = CreateWindowEx(0, window_class_.lpszClassName, L"", 0, CW_DEFAULT,
+                             CW_DEFAULT, 0, 0, HWND_MESSAGE, nullptr,
+                             window_class_.hInstance, nullptr);
 
   std::shared_ptr<flutter::MethodResult<flutter::EncodableValue>>
       shared_result = std::move(result);
