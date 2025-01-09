@@ -81,6 +81,7 @@ Webview::Webview(
 
     settings->put_IsStatusBarEnabled(FALSE);
     settings->put_AreDefaultContextMenusEnabled(FALSE);
+    settings->put_AreDevToolsEnabled(FALSE);
   }
 
   EnableSecurityUpdates();
