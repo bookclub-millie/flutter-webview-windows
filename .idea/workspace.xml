@@ -1,62 +1,134 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="NONE" />
-  </component>
-  <component name="ChangeListManager">
-    <list default="true" id="5560ff59-f178-408c-93bb-a9397f14c7b4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/example/windows/flutter/generated_plugins.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/windows/runner/Runner.rc" beforeDir="false" afterPath="$PROJECT_DIR$/example/windows/runner/Runner.rc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/webview.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/webview.dart" afterDir="false" />
-    </list>
-    <option name="SHOW_DIALOG" value="false" />
-    <option name="HIGHLIGHT_CONFLICTS" value="true" />
-    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
-    <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="ProjectId" id="2WFcryHJ6819vZhy6SSUYfjlN46" />
-  <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1" />
-    <panes>
-      <pane id="ProjectPane">
-        <option name="show-excluded-files" value="false" />
-      </pane>
-    </panes>
-  </component>
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
-    <property name="cidr.known.project.marker" value="true" />
-    <property name="dart.analysis.tool.window.force.activate" value="true" />
-    <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="flutter.settings" />
-    <property name="show.migrate.to.gradle.popup" value="false" />
-  </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
-  <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="5560ff59-f178-408c-93bb-a9397f14c7b4" name="Changes" comment="" />
-      <created>1696331971052</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1696331971052</updated>
-    </task>
-    <servers />
-  </component>
-  <component name="ToolWindowManager">
-    <editor active="true" />
-    <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-    </layout>
-  </component>
+    <component name="AutoImportSettings">
+        <option name="autoReloadType" value="SELECTIVE" />
+    </component>
+    <component name="ChangeListManager">
+        <list default="true" id="4936832b-d0bc-4ac0-a5e6-1270e193d899" name="Changes" comment="" />
+        <option name="SHOW_DIALOG" value="false" />
+        <option name="HIGHLIGHT_CONFLICTS" value="true" />
+        <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+        <option name="LAST_RESOLUTION" value="IGNORE" />
+    </component>
+    <component name="FileEditorManager">
+        <leaf>
+            <file leaf-file-name="webview_windows.dart" pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/lib/webview_windows.dart">
+                    <provider selected="true" editor-type-id="text-editor">
+                        <state relative-caret-position="0">
+                            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                        </state>
+                    </provider>
+                </entry>
+            </file>
+            <file leaf-file-name="main.dart" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/example/lib/main.dart">
+                    <provider selected="true" editor-type-id="text-editor">
+                        <state relative-caret-position="0">
+                            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                        </state>
+                    </provider>
+                </entry>
+            </file>
+        </leaf>
+    </component>
+    <component name="Git.Settings">
+        <option name="RECENT_BRANCH_BY_REPOSITORY">
+            <map>
+                <entry key="$PROJECT_DIR$" value="0.4.0-fork" />
+            </map>
+        </option>
+        <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    </component>
+    <component name="GitToolBoxStore">
+        <option name="recentBranches">
+            <RecentBranches>
+                <option name="branchesForRepo">
+                    <list>
+                        <RecentBranchesForRepo>
+                            <option name="branches">
+                                <list>
+                                    <RecentBranch>
+                                        <option name="branchName" value="0.4.0-fork" />
+                                        <option name="lastUsedInstant" value="1731546003" />
+                                    </RecentBranch>
+                                    <RecentBranch>
+                                        <option name="branchName" value="main" />
+                                        <option name="lastUsedInstant" value="1731546002" />
+                                    </RecentBranch>
+                                </list>
+                            </option>
+                            <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+                        </RecentBranchesForRepo>
+                    </list>
+                </option>
+            </RecentBranches>
+        </option>
+    </component>
+    <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 7
+}]]></component>
+    <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+    <component name="ProjectView">
+        <navigator currentView="ProjectPane" proportions="" version="1" />
+        <panes>
+            <pane id="ProjectPane">
+                <option name="show-excluded-files" value="false" />
+            </pane>
+        </panes>
+    </component>
+    <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "0.4.0-fork"
+  }
+}]]></component>
+    <component name="SharedIndexes">
+        <attachedChunks>
+            <set>
+                <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
+                <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
+            </set>
+        </attachedChunks>
+    </component>
+    <component name="SwiftWorkspaceSettings">
+        <option name="detectedToolchain" value="true" />
+        <option name="toolchainPathValue" value="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain" />
+    </component>
+    <component name="TaskManager">
+        <servers />
+    </component>
+    <component name="ToolWindowManager">
+        <editor active="true" />
+        <layout>
+            <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+        </layout>
+    </component>
+    <component name="TypeScriptGeneratedFilesManager">
+        <option name="version" value="3" />
+    </component>
+    <component name="Vcs.Log.Tabs.Properties">
+        <option name="TAB_STATES">
+            <map>
+                <entry key="MAIN">
+                    <value>
+                        <State>
+                            <option name="FILTERS">
+                                <map>
+                                    <entry key="branch">
+                                        <value>
+                                            <list>
+                                                <option value="upstream/main" />
+                                            </list>
+                                        </value>
+                                    </entry>
+                                </map>
+                            </option>
+                        </State>
+                    </value>
+                </entry>
+            </map>
+        </option>
+    </component>
 </project>
