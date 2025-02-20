@@ -741,7 +741,8 @@ class _WebviewState extends State<Webview> {
               },
               onPointerPanZoomUpdate: (signal) {
                 if (signal.panDelta.dx.abs() > signal.panDelta.dy.abs()) {
-                  _controller._setScrollDelta(-signal.panDelta.dx, 0);
+                  //Todo: 횡스크롤 영역에서 트랙패드 조작 시 종스크롤 먹통됨에 따라 임시적으로 트랙패드 횡스크롤 막음.
+                  // _controller._setScrollDelta(-signal.panDelta.dx, 0);
                 } else {
                   _controller._setScrollDelta(0, signal.panDelta.dy);
                 }
