@@ -194,7 +194,8 @@ WebviewBridge::WebviewBridge(flutter::BinaryMessenger* messenger,
 }
 
 WebviewBridge::~WebviewBridge() {
-  method_channel_->SetMethodCallHandler(nullptr);
+
+  //method_channel_->SetMethodCallHandler(nullptr); //해당 코드 : 윈도우 앱 종료시 dll 에러발생
   texture_registrar_->UnregisterTexture(texture_id_);
 }
 
